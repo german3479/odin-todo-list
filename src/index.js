@@ -1,7 +1,7 @@
 import './styles/styles.css';
 
-import Header from '../src/modules/components/presentational/header';
-import Main from '../src/modules/components/presentational/main';
+import Header from './modules/components/presentational/header';
+import Main from './modules/components/presentational/main';
 
 if (Object.keys(localStorage).length < 2 && (!localStorage.getItem('projects') || !localStorage.getItem('tasks'))){
   localStorage.getItem('projects') ? null : localStorage.setItem('projects', JSON.stringify([]));
