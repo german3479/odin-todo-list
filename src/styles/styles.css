@@ -1,0 +1,329 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* general */
+button {
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+ul {
+    list-style: none;
+}
+ul li {
+    margin-bottom: 0.5rem;
+}
+ul li button {
+    width: 100%;
+}
+
+/* header */
+
+header {
+    height: 110px;
+    background-color: black;
+    color: white;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px;
+}
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.logo-img {
+    max-height: 100%;
+}
+
+/* main */
+
+main {
+    display: flex;
+}
+main > * {
+    padding: 20px;
+}
+
+/* projects-bar */
+.projects-bar {
+}
+.projects-bar > * {
+    width: 100%;
+}
+.projects-bar h2 {
+    margin-bottom: 0.9rem;
+}
+[data-open-listbar-modal] {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    cursor: pointer;
+}
+
+/* add project modal */
+
+[data-listbar-modal] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 4x 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    width: fit-content;
+}
+[data-listbar-modal] .dialog-container {
+    margin: 0 auto;
+}
+[data-listbar-modal] form {
+    display: flex;
+    flex-direction: column;
+}
+[data-listbar-modal] .form-group {
+    margin-bottom: 15px;
+}
+[data-listbar-modal] label {
+    font-weight: bold;
+}
+[data-listbar-modal] input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* add task modal */
+[data-task-modal] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    width: fit-content;
+}
+[data-task-modal] .dialog-container {
+    margin: 0 auto;
+}
+[data-task-modal] form {
+    display: flex;
+    flex-direction: column;
+}
+[data-task-modal] .form-group {
+    margin-bottom: 15px;
+}
+[data-task-modal] label {
+    font-weight: bold;
+}
+[data-task-modal] input,
+[data-task-modal] textarea,
+[data-task-modal] select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 5px;
+}
+[data-task-modal] .options-container {
+    display: flex;
+    gap: 1.2rem;
+}
+[data-task-modal] .add-task-error {
+    color: red;
+    font-size: 1.2rem;
+    margin-block: 10px;
+    text-align: center;
+}
+[data-task-modal] .button-group {
+    display: flex;
+    justify-content: space-between;
+}
+[data-task-modal] button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+[data-task-modal] .task-modal-add {
+    background-color: #4caf50;
+    color: #fff;
+}
+[data-task-modal] .task-modal-close {
+    background-color: #ccc;
+    color: #333;
+}
+/* list-bar */
+.list-bar {
+    width: 100%;
+}
+.list-content {
+    margin: 0 auto;
+    background: silver;
+}
+.listbarDialogOptions {
+    display: flex;
+    justify-content: space-between;
+}
+.listbarDialogAdd,
+.listbarDialogClose {
+    padding: 10px;
+    border: none;
+    border-radius: px;
+    cursor: pointer;
+}
+.listbarDialogAdd {
+    background-color: #4caf50;
+    color: #fff;
+}
+.listbarDialogClose {
+    background-color: #ccc;
+    color: #333;
+}
+
+/* edit form */
+[data-edit-modal] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 4px 8x rgba(0,0,0,0.1);
+    z-index: 1000;
+    width: fit-content;
+}
+[data-edit-modal] .dialog-container {
+    margin: 0 auto;
+}
+[data-edit-modal] form {
+    display: flex;
+    flex-direction: column;
+}
+[data-edit-modal] .form-group {
+    margin-bottom: 15px;
+}
+[data-edit-modal] label {
+    font-weight: bold;
+}
+[data-edit-modal] input,
+[data-edit-modal] textarea,
+[data-edit-modal] select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 5px;
+}
+[data-edit-modal] .options-container {
+    display: flex;
+    gap: 1.2rem;
+}
+[data-edit-modal] .edit-task-error {
+    color: red;
+    font-size: 1.2rem;
+    margin-block: 10px;
+    text-align: center;
+}
+[data-edit-modal] .button-group {
+    display: flex;
+    justify-content: space-between;
+}
+[data-edit-modal] button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+[data-edit-modal] .task-modal-edit {
+    background-color: #4caf50;
+    color: #fff;
+}
+[data-edit-modal] .task-modal-close {
+    background-color: #ccc;
+    color: #333;
+}
+/* todo/task item */
+
+.todo-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+.todo-item.completed {
+    opacity: 0.6;
+    background: #eee;
+}
+.task-item-main {
+    display: flex;
+    flex-direction: column;
+}
+.task-item-geninfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.task-item-geninfo > * {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+.task-steps-button {
+    padding: 2.5px 5px;
+}
+.priority {
+    height: 18px;
+    width: 18px;
+    margin-right: 10px;
+    border: 1px solid #333;
+}
+.priority-low {
+    background-color: blue;
+}
+.priority-medium {
+    background-color: yellow;
+}
+.priority-high {
+    background-color: red;
+}
+.task-description {
+    text-align: left;
+}
+.task-item-hidable {
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+.task-checklist {
+    list-style-type: none;
+}
+.task-checklist-item {
+    display: flex;
+    align-items: center;
+}
+
+/* media queries */
+
+@media (max-width: 710px){
+   
+}
+@media (max-width: 610px){
+    main {
+        flex-direction: column;
+    }
+}
