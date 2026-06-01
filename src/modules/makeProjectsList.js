@@ -15,18 +15,7 @@ const MakeProjectsList = () => {
         projectButton.textContent = project.name;
         projectButton.addEventListener('click', () => handleProjectButtonClick(project));
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.classList.add('project-delete-icon');
-        deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
-        deleteBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            storageDeleteProject(project.name);
-            updateProjectsList();
-            document.querySelector('#list-bar').innerHTML = '';
-        });
-
         projectItem.appendChild(projectButton);
-        projectItem.appendChild(deleteBtn);
         projectsList.appendChild(projectItem);
     });
 

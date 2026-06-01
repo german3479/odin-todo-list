@@ -5,6 +5,11 @@ import {createFormField, createOptionsGroup, validateFormData} from '../utils/fo
 
 export function handleAddButtonClick(projectObject, taskDialog) {
     const dueDateString = document.querySelector("#task-due-add");
+
+    if (!dueDateString.value){
+        document.querySelector(".add-task-error").textContent = "Please select a due date";
+        return;
+    }
     const parsedString = parseISO(dueDateString.value);
 
     const formData = {
@@ -104,10 +109,12 @@ export function AddTaskModal(projectObject) {
     taskDialog.appendChild(dialogContainer);
 
     addTaskButton.addEventListener('click', () => {
+        document.querySelector(".add-task-error").textContent = "";
         taskDialog.showModal();
     });
     addButton.addEventListener('click', () => handleAddButtonClick(projectObject, taskDialog));
     closeButton.addEventListener('click', () => {
+        document.querySelector("#add-task-form").reset();
         taskDialog.close();
     });
 

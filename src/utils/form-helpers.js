@@ -72,8 +72,16 @@ export function createOptionsGroup(idSuffix){
 }
 
 export function validateFormData(formData, errorElement){
-    if (!formData.title || !formData.dueDate){
+    if (!formData.title && !formData.dueDate){
         errorElement.textContent = "All fields except description and checklist must be filled";
+        return {valid: false};
+    }
+    if (!formData.title){
+        errorElement.textContent = "Task title is required";
+        return {valid: false};
+    }
+    if (!formData.dueDate){
+        errorElement.textContent = "Due date is required";
         return {valid: false};
     }
     errorElement.textContent = "";
