@@ -78,7 +78,7 @@ main > * {
     padding: 20px;
     background-color: #fff;
     border: 1px solid #fff;
-    box-shadow: 0 4x 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 1000;
     width: fit-content;
 }
@@ -182,7 +182,7 @@ main > * {
 .listbarDialogClose {
     padding: 10px;
     border: none;
-    border-radius: px;
+    border-radius: 4px;
     cursor: pointer;
 }
 .listbarDialogAdd {
@@ -203,7 +203,7 @@ main > * {
     padding: 20px;
     background-color: #fff;
     border: 1px solid #fff;
-    box-shadow: 0 4px 8x rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 1000;
     width: fit-content;
 }

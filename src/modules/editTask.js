@@ -76,7 +76,8 @@ export function EditTaskModal(data){
         editDialog.querySelector("#task-checklist-edit").value = data.checklist.join(",");
     }
 
-    editTaskButton.addEventListener('click', () => {
+    editTaskButton.addEventListener('click', (e) => {
+        e.stopPropagation();
         editDialog.showModal();
         populateFormFields(data);
     });

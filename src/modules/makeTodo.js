@@ -34,14 +34,14 @@ function makeTodo(data){
     dueElement.textContent = dueDate;
     taskDetails.appendChild(dueElement);
 
-    if (checklist && checklist[0] != ""){
+    if (checklist && checklist.some(item => item && item.trim() !== "")){
         const stepsButton = document.createElement('button');
-    stepsButton.classList.add('task-steps-button');
-    stepsButton.textContent = 'STEPS';
-    stepsButton.addEventListener('click', e =>{
-        e.stopPropagation();
-        toggleChecklist();
-    });
+        stepsButton.classList.add('task-steps-button');
+        stepsButton.textContent = 'STEPS';
+        stepsButton.addEventListener('click', e =>{
+         e.stopPropagation();
+         toggleChecklist();
+        });
     taskDetails.appendChild(stepsButton);
     }
     
@@ -64,14 +64,16 @@ function makeTodo(data){
 
     todoItem.appendChild(mainTaskInfo);
 
-   if (checklist && !checklist[0] == "") {
+   const validItems = checklist.filter(item => item && item.trim() !== "");
+if (validItems.length > 0) {
     const hidableChecklist = document.createElement('div');
     hidableChecklist.classList.add('task-item-hidable');
+    hidableChecklist.style.display = "none";
 
     const checklistElement = document.createElement('ul');
     checklistElement.classList.add('task-checklist');
 
-    checklist.forEach(item =>{
+    validItems.forEach(item => {
         const checklistItem = document.createElement('li');
         checklistItem.classList.add('task-checklist-item');
 
@@ -85,11 +87,11 @@ function makeTodo(data){
         checklistItem.appendChild(checklistText);
 
         checklistElement.appendChild(checklistItem);
-    })
+    });
 
     hidableChecklist.appendChild(checklistElement);
     todoItem.appendChild(hidableChecklist);
-   }
+}
 
    function toggleChecklist(){
     const hidableChecklist = todoItem.querySelector('.task-item-hidable');
@@ -102,10 +104,6 @@ function makeTodo(data){
 
    function toggleCompletion(){
     todoItem.classList.toggle('completed');
-   }
-
-   function openEditDialog(){
-    editDialog.showModal();
    }
 
     return todoItem;
