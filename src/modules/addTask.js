@@ -1,5 +1,6 @@
 import makeTodo from "./makeTodo";
 import {format, parse, parseISO} from 'date-fns';
+import {addTask as storageAddTask} from '../utils/storage';
 import {createFormField, createOptionsGroup, validateFormData} from '../utils/form-helpers';
 
 export function handleAddButtonClick(projectObject, taskDialog) {
@@ -23,11 +24,7 @@ export function handleAddButtonClick(projectObject, taskDialog) {
         return;
     }
 
-    const tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
-
-    tasks.push(formData);
-
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    storageAddTask(formData);
 
     const taskElement = makeTodo(formData);
 

@@ -1,5 +1,6 @@
 import makeTodo from "./makeTodo";
 import parse from "date-fns/parse";
+import {updateTask as storageUpdateTask, getTasksByProject} from '../utils/storage';
 import {createFormField, createOptionsGroup, validateFormData} from '../utils/form-helpers';
 
 export function EditTaskModal(data){
@@ -100,22 +101,14 @@ export function handleEditButtonClick(data, editDialog){
         project: data.project
     };
 
-    const tasks = JSON.parse(localStorage.getItem('tasks'));
-
-    const indexToEdit = tasks.findIndex(task => task.title == refTitle);
-
-    tasks.splice(indexToEdit, 1, formData);
-
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    //change down to line itemsToAdd
+    storageUpdateTask(refTitle, formData);
 
     const tasklist = document.querySelector(".project-preview-tasklist");
     tasklist.innerHTML = "";
 
-    const itemsToAdd = JSON.parse(localStorage.getItem('tasks')).filter(task => task.project == data.project);
-
-    itemsToAdd.forEach(item =>{
-        item = makeTodo(item);
-        tasklist.appendChild(item);
+    getTasksByProject(data.project).forEach(item => {
+    tasklist.appendChild(makeTodo(item));
     });
 
     editDialog.close();
