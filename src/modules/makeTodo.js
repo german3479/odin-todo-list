@@ -1,4 +1,5 @@
 import {EditTaskModal} from "./editTask";
+import { deleteTask as storageDeleteTask, getTasksByProject } from "../utils/storage";
 
 function makeTodo(data){
     const {title, description, dueDate, priority, checklist} = data;
@@ -49,6 +50,20 @@ function makeTodo(data){
     const {editTaskButton, editDialog} = EditTaskModal(data);
     taskDetails.appendChild(editTaskButton);
     taskDetails.appendChild(editDialog);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'DELETE';
+    deleteButton.classList.add('task-delete-button');
+    deleteButton.addEventListener('click', e =>{
+        e.stopPropagation();
+        storageDeleteTask(data.title, data.project);
+        const tasklist = document.querySelector(".project-preview-tasklist");
+        tasklist.innerHTML = "";
+        getTasksByProject(data.project).forEach(task =>{
+            tasklist.appendChild(makeTodo(task));
+        })
+    })
+    taskDetails.appendChild(deleteButton);
 
     dueElement.addEventListener('click', e =>{
         e.stopPropagation();

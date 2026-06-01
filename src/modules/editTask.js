@@ -46,7 +46,7 @@ export function EditTaskModal(data){
 
     const editButton = document.createElement('button');
     editButton.classList.add('task-modal-edit');
-    editButton.textContent = 'EDIT TASK';
+    editButton.textContent = 'SAVE';
     editButton.setAttribute('type', 'submit');
 
     buttonGroup.appendChild(editButton);

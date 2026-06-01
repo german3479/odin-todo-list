@@ -15,6 +15,13 @@ export function addProject(name){
     setProjects(projects);
 }
 
+export function deleteProject(name){
+    const projects = getProjects().filter(p => p.name !== name);
+    setProjects(projects);
+    const tasks = getTasks().filter(t => t.project !== name);
+    setTasks(tasks);
+}
+
 export function getTasks(){
     return JSON.parse(localStorage.getItem(TASKS_KEY) || []);
 }

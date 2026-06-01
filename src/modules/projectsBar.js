@@ -10,15 +10,11 @@ const ProjectsBar = () =>{
     const projectsBar = document.createElement('div');
     projectsBar.classList.add('projects-bar');
 
-    const defaultsH2 = document.createElement('h2');
-    defaultsH2.textContent = "Defaults";
-    projectsBar.appendChild(defaultsH2);
-
     const projectsH2 = document.createElement('h2');
     projectsH2.textContent = "Projects";
     projectsBar.appendChild(projectsH2);
 
-    const projectsList = MakeProjectsList(JSON.parse(localStorage.getItem('projects') || []));
+    const projectsList = MakeProjectsList();
     projectsBar.appendChild(projectsList);
 
     projectsBar.appendChild(newProjectButton);

@@ -82,7 +82,7 @@ export function AddTaskModal(projectObject) {
 
     const addButton = document.createElement('button');
     addButton.classList.add('task-modal-add');
-    addButton.textContent = 'Add Task';
+    addButton.textContent = 'SAVE';
     addButton.setAttribute('type', 'submit');
 
     buttonGroup.appendChild(addButton);
